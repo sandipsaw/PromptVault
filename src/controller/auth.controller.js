@@ -50,4 +50,36 @@ const registerController = async (req, res) => {
 
 }
 
-module.exports = registerController;
+const loginController = async(req,res)=>{
+    const { email, password } = req.body;
+
+    if ( !email || !password ) {
+      return res.status(400).json({ message: 'All fields are required' });
+    }
+
+    const User = await userModel.findOne({
+        email
+    })
+    if(!User){
+        return res.status.json({message:"User not found!"})
+    }
+    const isPassword = await bcrypt.compare(password,User.password)
+
+    if(!isPassword){
+        return res.status.json({message:"Invalid password"})
+    }
+
+    const token = jwt.sign({id:User._id},process.env.JWT_SECRET)
+    res.cookie("token",token);
+
+    res.status(201).json({
+        message:"User looged in successfully",
+        User:{
+            fullname:User.fullname,
+            email:email,
+            id:User._id,
+        }
+    })
+}
+module.exports = {registerController,loginController};
+
