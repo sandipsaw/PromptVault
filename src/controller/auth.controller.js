@@ -61,12 +61,12 @@ const loginController = async(req,res)=>{
         email
     })
     if(!User){
-        return res.status.json({message:"User not found!"})
+        return res.status(404).json({message:"User not found!"})
     }
     const isPassword = await bcrypt.compare(password,User.password)
 
     if(!isPassword){
-        return res.status.json({message:"Invalid password"})
+        return res.status(401).json({message:"Invalid password"})
     }
 
     const token = jwt.sign({id:User._id},process.env.JWT_SECRET)
