@@ -9,7 +9,7 @@ const Nav = () => {
         <span className='bg-gradient-to-tl from-[#1e293b] via-[#6366f1] to-[#71717a] bg-clip-text text-transparent font-semibold text-4xl'>PromptVault</span>
       </div>
       <div className='gap-5 flex justify-center items-center font-medium bg-gradient-to-t from-orange-500 via-blue-500 to-teal-500 text-transparent bg-clip-text'>
-        <NavLink to='/'>Sign Up</NavLink>
+        <NavLink to='/sign-up'>Sign Up</NavLink>
         <NavLink to='/create-prompt'>Create</NavLink>
         <NavLink to='/personal-prompt'>Prompt</NavLink>
         <NavLink to='/community-prompt'>Community</NavLink>
