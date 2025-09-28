@@ -1,8 +1,14 @@
 import React from 'react'
 
 const Create = () => {
+  const changeHandler =()=>{
+    console.log("hrllo");
+    
+  }
   return (
-    <div>Create</div>
+    <div>
+      <button onClick={changeHandler}>create</button>
+    </div>
   )
 }
 
