@@ -19,6 +19,19 @@ export const asyncLoginUser = (user) =>async(dispatch,getState)=>{
     }
 }
 
+export const asyncGetUser = () => async(dispatch,getState) =>{
+    try{
+        const res = await axios.get('/fetchUser')
+        return res.data.user
+        
+        
+    }catch(error){
+        if (error.response) {
+            console.log("Server responded:", error.response.data);
+            return error.response.data[0].message
+        }
+    }
+}
 export const asyncRegisterUser = (user) => async (dispatch, getState) => {
     try {
         const res = await axios.post("/auth/register", user)

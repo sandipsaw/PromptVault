@@ -5,10 +5,11 @@ import { useNavigate } from 'react-router-dom'
 
 const LandingPage = () => {
   const navigate = useNavigate();
-
+  
   const RegisterMe = () => {
     navigate('/register')
   }
+  
   return (
     <div className='min-h-screen w-full bg-[#0f172a] relative px-4 md:px-10 lg:px-20'>
 
@@ -24,6 +25,7 @@ const LandingPage = () => {
 
           <div className='hidden md:block'>
             <button className='bg-gradient-to-tl from-[#1e293b] via-[#6366f1] to-[#71717a]  px-8 py-3 text-[16px] rounded-full text-white font-semibold lg:mt-20 md:mt-10 mt-5  transition-translate duration-300 hover:text-white hover:scale-105 cursor-pointer fill-white drop-shadow-xl/50' onClick={RegisterMe}>Start Free Vault</button>
+            
           </div>
 
         </div>
@@ -32,6 +34,7 @@ const LandingPage = () => {
           <img src={image} alt="landing image" className='w-full fill-white drop-shadow-xl/50 ' />
           <div className='md:hidden block text-center'>
             <button className='bg-gradient-to-tl from-[#1e293b] via-[#6366f1] to-[#71717a]  px-5 py-2 text-[14px] rounded-full text-white font-semibold lg:mt-20 md:mt-10 mt-5  transition-translate duration-300 hover:text-white hover:scale-105 cursor-pointer fill-white drop-shadow-xl/50' onClick={RegisterMe}>Start Free Vault</button>
+            
           </div>
         </div>
       </div>
