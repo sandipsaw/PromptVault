@@ -1,4 +1,5 @@
 import axios from "../api/axios.config";
+import { loaduser } from "./UserSlice";
 
 export const asyncLoginUser = (user) =>async(dispatch,getState)=>{
     
@@ -22,7 +23,10 @@ export const asyncLoginUser = (user) =>async(dispatch,getState)=>{
 export const asyncGetUser = () => async(dispatch,getState) =>{
     try{
         const res = await axios.get('/fetchUser')
-        return res.data.user
+        // console.log(res.data.user.username);
+        console.log(res.data.user.username);
+        
+        dispatch(loaduser(res.data.user.username))
         
         
     }catch(error){

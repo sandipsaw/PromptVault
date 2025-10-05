@@ -1,16 +1,14 @@
 // RegisterModal.jsx
-import React, { useState } from "react";
+import React, { useState , } from "react";
 import image from '../image/img1.png'
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useForm } from 'react-hook-form'
-import { nanoid } from 'nanoid'
 import { asyncRegisterUser } from "../store/UserAction";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { FcGoogle } from "react-icons/fc";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { auth } from "../components/firebase";
+
 
 const Register = () => {
 
@@ -23,17 +21,11 @@ const Register = () => {
     seterrorMsg("")
   }
 
-  const provider = new GoogleAuthProvider();
 
-  function handleGoogleSignIn() {
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        const user = result.user;
-        console.log("Signed in user:", user);
-      })
-      .catch((error) => {
-        console.error("Google sign-in error:", error);
-      });
+  const handleGoogleSignIn = () =>{
+    console.log("helolo");
+   window.location.href = 'http://localhost:3000/auth/google'
+
   }
   
   const { register, reset, handleSubmit } = useForm();

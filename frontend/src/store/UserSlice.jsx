@@ -1,15 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+
 const initialState = {
-    data:[],
+    userData:"",
 }
+
 
 export const userSlice = createSlice({
     name:"user",
     initialState,
     reducers:{
         loaduser:(state,action)=>{
-            state.data = action.payload;
+            state.userData = action.payload;
         }
     }
 })
